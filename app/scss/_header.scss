@@ -1,0 +1,242 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 0;
+    @include breakpoint-up(large) {
+        border-bottom: 0.125rem solid $grayishBlue;
+        padding: 2rem 0;
+    }
+    
+    nav {
+        flex: 0 0 auto;
+        display: flex;
+    }
+    .overlay {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.75);
+        z-index: 1;
+    }
+
+    &__hamburger {
+        height: 1rem;
+        align-self: flex-end;
+        margin-right:1rem;
+        &:hover {
+            cursor:pointer;
+        }
+    }
+    &__menu {
+        position: absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        width: 250px;
+        background-color: $white;
+        padding-left:1.375rem;
+        z-index: 1;
+
+        span {
+            display: block;
+            width: 1rem;
+            height: 0.1875rem;
+            background-color: $darkGrayishBlue;
+            transform-origin: 0;
+            transition: all 250ms ease-in-out;
+            &:first-child {
+                margin-top:1.75rem;
+            }
+            &:not(:last-child) {
+                margin-bottom: 0.1875rem;
+            }
+        }
+        
+        //Hamburger Open
+        &.open {
+            span:first-child {
+                transform: rotate(45deg);
+            }
+            span:nth-child(2) {
+                opacity:0;
+            }
+            span:last-child {
+                transform: rotate(-45deg);
+            }
+        
+        }
+        .header__hamburger {
+            margin-bottom: 3.125rem;
+        }
+        a {
+            display: block;
+            color: $black;
+            font-weight: $weight-heavy;
+            &:not(:last-child) {
+                margin-bottom: 1.875rem;
+            }
+
+        }
+    }
+
+    &__logo {
+        margin-right: 3.25rem;
+    }
+
+    &__links { //hide for mobile
+        a {
+            position: relative;
+            transition: color 250ms ease-in-out;
+            &:not(:last-child) {
+                margin-right: 2rem;
+            }
+            &:hover {
+                color: $veryDarkBlue;
+                &::before {
+                    opacity: 1;                    
+                }
+            }
+            &::before {
+                content: "";
+                position:absolute;
+                left:0;
+                right:0;
+                bottom: -3.125rem;
+                height: 3px;
+                background: $orange;
+                opacity:0;
+                transition: opacity 250ms ease-in-out;
+            }
+        }
+    }
+
+    &__images {
+        flex: 0 0 auto;
+        display: flex;
+
+        &__cart {
+            position: relative;
+            flex: 0 0 auto;
+            align-self: center;
+            margin-top:0.25rem;
+            margin-right:1.25rem;
+            @include breakpoint-up(large) {
+                margin-right:2.625rem;
+            }
+            img:hover{
+                cursor:pointer;
+            }
+            .cart-products {
+                position: absolute;
+                top: -0.1875rem;
+                right: -0.25rem;
+                width: 1rem;
+                height: 0.625rem;
+                border-radius: 2rem;
+                background: #ff7d1a;
+                text-align: center;
+                font-size: 0.5rem;
+                color: $white;
+                line-height: 0.6125rem;
+                font-weight: $weight-heavy;
+                cursor: pointer;
+
+            }
+        }
+        .cart {
+            position: absolute;
+            width: 22rem;
+            height: 15rem;
+            top: 6rem;
+            right:5rem;
+            background: $white;
+            border-radius: 0.5rem;
+            box-shadow: 0px 0.1875rem 0.75rem rgba(0,0,0,0.25);
+            cursor:default;
+            z-index: 1;
+
+            @include breakpoint-down (medium) {
+                left:50%;
+                transform: translateX(-50%);
+            }
+            &__title {
+                padding: 1.375rem;
+                color: $veryDarkBlue;
+                border-bottom: solid 0.125rem $grayishBlue;
+                font-weight: $weight-heavy;
+            }
+
+            &__li {
+                display: flex;
+                justify-content: space-between;
+                padding: 1.375rem;
+                &.is-hidden {
+                    display: none;
+                }
+                &__product {
+                    display: flex;
+                    align-items: flex-start;
+                    img {
+                        max-width: 3.125rem;
+                        max-height: 3.125rem;
+                        margin-right: 1rem;
+                        border-radius: 0.5rem;
+                    }
+                    .cart__li__info {
+                        span:first-child {
+                            display: block;
+                        }
+                    }
+                    .amount {
+                        margin-right: 0.5rem;
+                    }
+                    .total {
+                        color: $veryDarkBlue;
+                        font-weight: $weight-heavy;
+                    }
+                }
+                &__trash {
+                    background-image: url("../images/icon-delete.svg");
+                    padding: 0.5rem;
+                    background-repeat: no-repeat;
+                    align-self: center;
+                    cursor: pointer;
+                }
+            }
+            &__checkout {
+                width: calc(100% - 2.75rem);
+                margin-left: 1.375rem;
+            }
+            &__empty {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                margin-top:1.5rem;
+                color:$darkGrayishBlue;
+                font-weight: $weight-heavy;
+            }
+        }
+
+        &__avatar {
+            flex: 0 0 auto;
+            display: inline-flex;
+            max-width: 1.6125rem;
+            max-height: 1.6125rem;
+            
+            @include breakpoint-up(large) {
+                max-width: 3.125rem;
+                max-height: 3.125rem;
+            }
+            &:hover {
+                cursor: pointer;
+                border: solid 0.125rem $orange;
+                border-radius: 1.5rem;
+            }
+        }
+    }
+
+}

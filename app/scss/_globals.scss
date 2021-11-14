@@ -1,0 +1,122 @@
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*,*::after, *::before {
+    box-sizing: inherit;
+}
+
+body {
+    margin:0;
+    padding:0;
+    color: $darkGrayishBlue;
+}
+
+// a
+
+a, a:hover, a:visited {
+    text-decoration: none;
+    color: $darkGrayishBlue;
+}
+
+// container
+
+.container {
+    margin:0 1.5rem;
+    @include breakpoint-up(large) {
+    margin:0 10rem;
+    }
+}
+
+//buttons 
+
+.button {
+    width: 100%;
+    padding: 1rem 0;
+    border-radius: 0.5rem;
+    text-align: center;
+    background-color: $orange;
+    border: none;
+    cursor: pointer;
+    color:$paleOrange;
+    font-weight: $weight-heavy;
+    font-size: $font-sm;
+}
+
+//hidden 
+
+.is-hidden {
+    display: none;
+}
+
+//Responsiveness 
+.hide-for-mobile {
+    @include breakpoint-down(medium) {
+        display: none;
+    }
+}
+
+.hide-for-desktop {
+    @include breakpoint-up(large) {
+        display:none
+    }
+}
+
+//thunbnails
+.thumbnail {
+    position: relative;
+    display: inline-block;
+    width: 5.625rem;
+    height: 5.625rem;
+    border-radius: 0.5rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    &:not(:last-child) {
+        margin-right: 1.5rem;
+    }
+    &.shown {
+        border: solid 0.125rem $orange;
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: rgba(255,255,255,0.7);
+        }
+    }
+    &:hover {
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: rgba(255,255,255,0.5);
+        }
+    }
+}
+
+//next and prev 
+.change {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top:50%;
+    transform: translateY(-50%);
+    background-color: $white;
+    border-radius: 10rem;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.attribution {
+    margin-top: 3rem;
+
+}

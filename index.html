@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="dist/style.css">
+  <title>Frontend Mentor | E-commerce product page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <header class="header container">
+    <div class="overlay has-fade"></div>
+    <nav>
+      <img src="images/icon-menu.svg" class="header__hamburger hide-for-desktop"alt="hamburger">
+      <img src="images/logo.svg" class="header__logo" alt="Sneakers">
+      <div class="header__links hide-for-mobile">
+        <a href="#">Collections</a>
+        <a href="#">Men</a>
+        <a href="#">Women</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+    </nav>
+    <div class="header__menu has-fade">
+      <div class="header__hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <a href="#">Collections</a>
+      <a href="#">Men</a>
+      <a href="#">Women</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="header__images">
+      <div class="header__images__cart">
+        <img src="images/icon-cart.svg" class="cart__img" alt="Shopping Cart">
+        <div class="cart-products cart__img is-hidden"></div>
+      </div>
+      <div class="cart is-hidden">
+        <div class="cart__title">Cart</div>
+          <div class="cart__li is-hidden">
+            <div class="cart__li__product">
+              <img src="images/image-product-1-thumbnail.jpg" alt="shoes">
+              <div class="cart__li__info">
+                <span>Fall Limited Edition Sneakers</span>
+                <span>$125.00 x</span>
+                <span class="amount"></span>
+                <span class="total"></span>
+              </div>
+            </div>
+            <div class="cart__li__trash"></div>
+          </div>
+          <button class="button is-hidden cart__checkout">Checkout</button>
+        <div class="cart__empty">Your Cart is empty.</div>
+      </div>
+      <img src="images/image-avatar.png" class="header__images__avatar" alt="avatar">
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="zoom-in has-fade">
+      <div class="zoom-in__img image1">
+        <div class="close"></div>
+        <div class="change prev">
+          <div class="prev-img"></div>
+        </div>
+        <div class="change next">
+          <div class="next-img"></div>
+        </div>
+      </div>
+      <div class="thumbnails">
+        <div onclick="changeToImg1()" class="thumbnail img1 shown"></div>
+        <div onclick="changeToImg2()" class="thumbnail img2"></div>
+        <div onclick="changeToImg3()" class="thumbnail img3"></div>
+        <div onclick="changeToImg4()" class="thumbnail img4"></div>
+      </div>
+    </div>
+    <div>
+      <div class="hero__images image1">
+        <div class="change prev">
+          <img src="images/icon-previous.svg" alt="previous">
+        </div>
+        <div class="change next">
+          <img src="images/icon-next.svg" alt="next">
+        </div>
+      </div>
+      <div class="thumbnails hide-for-mobile">
+        <div onclick="changeToImg1()" class="thumbnail img1 shown"></div>
+        <div onclick="changeToImg2()" class="thumbnail img2"></div>
+        <div onclick="changeToImg3()" class="thumbnail img3"></div>
+        <div onclick="changeToImg4()" class="thumbnail img4"></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="hero__company ">Sneaker Company</div>
+      <div class="hero__text ">
+        <h2>Fall Limited Edition Sneakers</h2>
+        <p>These low-profile sneakers are your perfect casual wear companion. Featuring a 
+          durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+      </div>
+      <div class="hero__cost ">
+        <div class="price">
+          <h2>$125.00</h2>
+          <div class="discount"></div>
+        </div>
+        <div class="prevCost">$250.00</div>
+      </div>
+      <div class="hero-buttons">
+        <div class="button  hero__amount">
+          <span class="ordering">0</span>
+          <div class="minus change"></div>
+          <div class="plus change"></div>
+        </div>
+        <button onclick="addToCart()" class="button hero__addToCart">
+          <img src="images/icon-cart-white.svg" alt="cart">
+          <span>Add to cart</span> 
+        </button>
+      </div>
+    </div>
+  </section>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Aurelijus Kadzys</a>.
+  </div>
+
+  <script src="app/js/script.js"></script>
+</body>
+</html>
